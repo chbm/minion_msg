@@ -35,6 +35,7 @@ impl From<MinionId> for Vec<u8> {
 pub enum MinionOps {
     Auth,
     Exec,
+    Ret,
 }
 
 #[derive(Deserialize, Serialize)]
