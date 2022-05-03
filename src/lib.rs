@@ -4,7 +4,9 @@ use serde::{Serialize, Deserialize};
 use postcard;
 use uuid::{uuid, Uuid};
 
+#[derive(Debug, PartialEq, Hash, Clone)]
 pub struct MinionId(Uuid);
+
 
 impl MinionId {
     pub fn new() -> MinionId {
@@ -28,7 +30,9 @@ impl From<MinionId> for Vec<u8> {
     }
 }
 
+impl Eq for MinionId {
 
+}
 
 #[derive(Deserialize, IntoPrimitive, Serialize, TryFromPrimitive, UnsafeFromPrimitive, Debug)]
 #[repr(u8)]
