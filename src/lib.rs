@@ -42,6 +42,13 @@ pub enum MinionOps {
     Ret,
 }
 
+#[derive(Deserialize, IntoPrimitive, Serialize, TryFromPrimitive, UnsafeFromPrimitive, Debug)]
+#[repr(u8)]
+pub enum MinionErrors {
+    BadCode,
+    ExecFault,
+}
+
 #[derive(Deserialize, Serialize)]
 pub struct MinionMsg {
     pub op: MinionOps,
