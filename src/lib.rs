@@ -34,12 +34,19 @@ impl Eq for MinionId {
 
 }
 
+impl From<MinionErrors> for Vec<u8> {
+    fn from(e: MinionErrors) -> Vec<u8> {
+        vec![e as u8]
+    }
+}
+
 #[derive(Deserialize, IntoPrimitive, Serialize, TryFromPrimitive, UnsafeFromPrimitive, Debug)]
 #[repr(u8)]
 pub enum MinionOps {
     Auth,
     Exec,
     Ret,
+    Error,
 }
 
 #[derive(Deserialize, IntoPrimitive, Serialize, TryFromPrimitive, UnsafeFromPrimitive, Debug)]
